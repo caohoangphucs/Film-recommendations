@@ -1,6 +1,6 @@
-from data.poster import get_poster,craw_poster_image, get_poster_path, POSTER_PATH
-from data.score import calc_avg_score
-from data.tag import *
+from services.poster import get_poster,craw_poster_image, get_poster_path, POSTER_PATH
+from services.score import calc_avg_score
+from services.tag import *
 from typing import Optional
 import os
 from dataclasses import dataclass
@@ -106,6 +106,3 @@ for _, row in df.iterrows():
 
 #Create recommender
 rcm = Recommender(db, (movieidx, tagidx, matrx))
-
-for result in rcm.recommend(([1], [5])):
-    result[0].show()
