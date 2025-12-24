@@ -86,8 +86,8 @@ def get_top_k(
     mask = movie_norms != 0
     sim[mask] = scores[mask] / movie_norms[mask]
 
-    top_idx = np.argsort(sim)[-k:][::-1]
+    top_idx = np.argsort(sim)[-(k+len(q[0])):][::-1]
 
     idx2movie = {v: m for m, v in movie2idx.items()}
 
-    return [(idx2movie[i], sim[i]) for i in top_idx]
+    return [(idx2movie[i], sim[i]) for i in top_idx if idx2movie[i] not in q[0]]
