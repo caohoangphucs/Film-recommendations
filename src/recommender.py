@@ -8,11 +8,12 @@ import pandas as pd
 import re
 from scipy.sparse import csr_matrix
 
-TAG_PATH="data/genome_scores.csv"
-LINK_MOVEID_TMDB="data/link.csv"
-RATING_PATH = "data/rating.csv"
-MOVIE_PATH = "data/movie.csv"
-RESULT_RATING_PATH = "data/avg_rating.csv"
+TAG_PATH = "src/data/genome_scores.csv"
+LINK_MOVIE_TMDB = "src/data/link.csv"
+RATING_PATH = "src/data/rating.csv"
+MOVIE_PATH = "src/data/movie.csv"
+RESULT_RATING_PATH = "src/data/avg_rating.csv"
+
 @dataclass
 class Movie:
     id: int
@@ -57,7 +58,7 @@ class Recommender:
 
 #Poster is enough
 print("Checking for poster....")
-craw_poster_image(LINK_MOVEID_TMDB, max_workers=20)
+#craw_poster_image(LINK_MOVEID_TMDB, max_workers=20)
 print("Poster init done")
 
 
